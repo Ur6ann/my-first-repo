@@ -23,7 +23,7 @@ def divide(a, b):
 
 
 print("=== Простий калькулятор ===")
-print("Операції: +, -, *, /, **")
+print("Операції: +, -, *, /, **, %")
 print("Для виходу введіть 'exit'")
 
 while True:
@@ -33,14 +33,15 @@ while True:
         print("До побачення!")
         break
 
-    if operation not in ['+', '-', '*', '/', '**']:
+    if operation not in [‘+’, ‘-’, ‘*’, ‘/’, ‘**’, ‘%’]:
         print("Невірна операція!")
         continue
     
     try:
         num1 = float(input("Введіть перше число: "))
         num2 = float(input("Введіть друге число: "))
-
+        elif operation == ‘%’:
+            result = modulo(num1, num2)
         if operation == '+':
             result = add(num1, num2)
         elif operation == '-':
@@ -51,6 +52,12 @@ while True:
             result = divide(num1, num2)
         elif operation == '**':
             result = power(num1, num2)
+            def modulo(a, b):
+                """Остача від ділення"""
+                if b != 0:
+                    return a % b
+                else:
+                    return "Помилка: ділення на нуль!"
 
         print(f"Результат: {result}")
 
